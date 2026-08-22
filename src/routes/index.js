@@ -54,7 +54,8 @@ app.get('/', async (c) => {
       null,
       html`
         <div class="my-3">
-          <div class="p-5 bg-light rounded-3">
+          <!-- Changed bg-light to bg-body-tertiary -->
+          <div class="p-5 bg-body-tertiary rounded-3">
             <h1 class="text-body">予定調整くん</h1>
             <p class="lead">
               予定調整くんは、GitHubで認証でき、予定を作って出欠が取れるサービスです。

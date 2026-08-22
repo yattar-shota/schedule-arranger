@@ -63,3 +63,27 @@ shareUrlCopyButton.on('click', () => {
     setTimeout(() => shareUrlCopyButton.text('Copy'), 1000);
   });
 });
+const themeSwitcher = document.getElementById('bd-theme-switch');
+
+if (themeSwitcher) {
+  themeSwitcher.addEventListener('click', () => {
+    const htmlElement = document.documentElement;
+    const navbar = document.getElementById('main-navbar');
+    const currentTheme = htmlElement.getAttribute('data-bs-theme');
+    
+    
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    htmlElement.setAttribute('data-bs-theme', newTheme);
+    
+    if (newTheme === 'dark') {
+      navbar.classList.remove('navbar-light', 'bg-light');
+      navbar.classList.add('navbar-dark', 'bg-dark');
+    } else {
+      navbar.classList.remove('navbar-dark', 'bg-dark');
+      navbar.classList.add('navbar-light', 'bg-light');
+    }
+    
+    document.cookie = `theme=${newTheme}; max-age=86400; path=/`;
+  });
+}
